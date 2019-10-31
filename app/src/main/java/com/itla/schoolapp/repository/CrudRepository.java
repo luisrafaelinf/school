@@ -1,6 +1,4 @@
-package com.itla.testdb.repository;
-
-import com.itla.testdb.entity.Student;
+package com.itla.schoolapp.repository;
 
 import java.util.List;
 

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@drawable/cell_student">
+
+	<TextView
+		android:id="@+id/txtDescriptionSubject"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="1dp"
+		android:layout_marginEnd="1dp"
+		android:text="description"
+		android:textSize="18sp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<TextView
+		android:id="@+id/txtTotalCareer"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:text="totalcareer"
+		app:layout_constraintEnd_toStartOf="@+id/txtCredit"
+		app:layout_constraintStart_toStartOf="@+id/txtDescriptionSubject"
+		app:layout_constraintTop_toBottomOf="@+id/txtDescriptionSubject" />
+
+	<TextView
+		android:id="@+id/txtCredit"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:text="credit"
+		android:textAlignment="textEnd"
+		android:textStyle="bold"
+		app:layout_constraintEnd_toEndOf="@+id/txtDescriptionSubject"
+		app:layout_constraintStart_toEndOf="@+id/txtTotalCareer"
+		app:layout_constraintTop_toBottomOf="@+id/txtDescriptionSubject" />
+</androidx.constraintlayout.widget.ConstraintLayout>

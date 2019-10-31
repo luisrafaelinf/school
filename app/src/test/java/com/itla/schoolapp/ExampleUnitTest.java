@@ -1,4 +1,4 @@
-package com.itla.testdb;
+package com.itla.schoolapp;
 
 import org.junit.Test;
 

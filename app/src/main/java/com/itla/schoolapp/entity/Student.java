@@ -1,4 +1,4 @@
-package com.itla.testdb.entity;
+package com.itla.schoolapp.entity;
 
 import java.util.Objects;
 
@@ -7,14 +7,23 @@ public class Student {
 	public final static String TABLE_NAME = "student";
 
 	private int id;
+	private int careerId;
 	private String name;
 	private String registerNumber;
+
+	public Student(){}
 
 	public Student(int id) {
 		this.id = id;
 	}
 
-	public Student( String name, String registerNumber) {
+	public Student(String name, String registerNumber) {
+		this.name = name;
+		this.registerNumber = registerNumber;
+	}
+
+	public Student(int id, String name, String registerNumber) {
+		this.id = id;
 		this.name = name;
 		this.registerNumber = registerNumber;
 	}
@@ -26,6 +35,15 @@ public class Student {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public int getCarrerId() {
+		return careerId;
+	}
+
+	public void setCareerId(int id) {
+		this.careerId = id;
+	}
+
 
 	public String getName() {
 		return name;

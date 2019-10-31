@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/student_form"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<EditText
+		android:id="@+id/txtNameStudent"
+		android:layout_width="0dp"
+		android:layout_height="45dp"
+		android:layout_marginStart="15dp"
+		android:layout_marginTop="40dp"
+		android:layout_marginEnd="15dp"
+		android:ems="10"
+		android:hint="Nombre"
+		android:inputType="textPersonName"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<EditText
+		android:id="@+id/txtRegisterNumber"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="20dp"
+		android:ems="10"
+		android:hint="Número Registro"
+		android:inputType="textPersonName"
+		app:layout_constraintEnd_toEndOf="@+id/txtNameStudent"
+		app:layout_constraintStart_toStartOf="@+id/txtNameStudent"
+		app:layout_constraintTop_toBottomOf="@+id/txtNameStudent" />
+
+	<Spinner
+		android:id="@+id/cmbCareer"
+		android:layout_width="0dp"
+		android:layout_height="35dp"
+		android:layout_marginTop="20dp"
+		android:layout_marginEnd="5dp"
+		app:layout_constraintEnd_toStartOf="@+id/btnAddCareer"
+		app:layout_constraintStart_toStartOf="@+id/txtRegisterNumber"
+		app:layout_constraintTop_toBottomOf="@+id/txtRegisterNumber" />
+
+	<Button
+		android:id="@+id/btnAddCareer"
+		android:layout_width="56dp"
+		android:layout_height="35dp"
+		android:layout_marginTop="20dp"
+		android:text="..."
+		app:layout_constraintEnd_toEndOf="@+id/txtRegisterNumber"
+		app:layout_constraintTop_toBottomOf="@+id/txtRegisterNumber"
+		app:layout_constraintWidth_max="60dp" />
+
+	<Button
+		android:id="@+id/btnSaveStudent"
+		android:layout_width="0dp"
+		android:layout_height="50dp"
+		android:layout_marginTop="40dp"
+		android:text="Guardar"
+		app:layout_constraintEnd_toEndOf="@+id/txtRegisterNumber"
+		app:layout_constraintStart_toStartOf="@+id/txtRegisterNumber"
+		app:layout_constraintTop_toBottomOf="@+id/cmbCareer" />
+</androidx.constraintlayout.widget.ConstraintLayout>

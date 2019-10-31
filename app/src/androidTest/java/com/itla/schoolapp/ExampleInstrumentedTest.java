@@ -1,4 +1,4 @@
-package com.itla.testdb;
+package com.itla.schoolapp;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
 		// Context of the app under test.
 		Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-		assertEquals("com.itla.testdb", appContext.getPackageName());
+		assertEquals("com.itla.schoolapp", appContext.getPackageName());
 	}
 }

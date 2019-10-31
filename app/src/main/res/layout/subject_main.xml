@@ -3,39 +3,28 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	tools:context=".MainActivity">
-
+	android:layout_height="match_parent">
 
 	<Button
-		android:id="@+id/btnNewStudent"
+		android:id="@+id/btnNewSubject"
 		android:layout_width="0dp"
 		android:layout_height="50dp"
 		android:layout_marginStart="15dp"
 		android:layout_marginTop="15dp"
 		android:layout_marginEnd="15dp"
-		android:autoSizeTextType="none"
-		android:gravity="center"
-		android:text="Nuevo Estudiante"
-		android:textAlignment="center"
-		android:textSize="14sp"
+		android:text="Nueva Asignatura"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHeight_max="50dp"
-		app:layout_constraintHeight_min="50dp"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent" />
 
 	<androidx.recyclerview.widget.RecyclerView
-		android:id="@+id/lstStudents"
+		android:id="@+id/lstSubjects"
 		android:layout_width="0dp"
 		android:layout_height="0dp"
 		android:layout_marginTop="5dp"
 		android:layout_marginBottom="15dp"
 		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="@+id/btnNewStudent"
-		app:layout_constraintHeight_min="50dp"
-		app:layout_constraintHorizontal_bias="0.0"
-		app:layout_constraintStart_toStartOf="@+id/btnNewStudent"
-		app:layout_constraintTop_toBottomOf="@+id/btnNewStudent"
-		app:layout_constraintVertical_bias="0.0" />
+		app:layout_constraintEnd_toEndOf="@+id/btnNewSubject"
+		app:layout_constraintStart_toStartOf="@+id/btnNewSubject"
+		app:layout_constraintTop_toBottomOf="@+id/btnNewSubject" />
 </androidx.constraintlayout.widget.ConstraintLayout>
