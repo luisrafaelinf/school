@@ -38,6 +38,7 @@ public class StudentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
 	@Override
 	public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+		System.out.println(position);
 		TextView registerNumber = holder.itemView.findViewById(R.id.registerNumber);
 		registerNumber.setText(students.get(position).getRegisterNumber());
 
