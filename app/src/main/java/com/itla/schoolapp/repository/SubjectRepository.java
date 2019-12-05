@@ -23,10 +23,11 @@ public interface SubjectRepository {
 	public void delete(Subject entity);
 
 	@Query("select * from subject where id = :id")
-	public Subject find(Object id);
+	public Subject find(int id);
 
 	@Query("select * from subject")
 	public List<Subject> findAll();
+
 
 	@Query("select count(*) as total from career_subject where subject_id = :subjectId")
 	public long getTotalCareers(long subjectId);

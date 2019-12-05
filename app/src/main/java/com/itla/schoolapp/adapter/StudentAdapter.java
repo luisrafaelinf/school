@@ -47,7 +47,7 @@ public class StudentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 		nameStudent.setText(students.get(position).getName());
 
 		TextView career = holder.itemView.findViewById(R.id.career);
-		Career careerStudent = careerRepository.find(students.get(position).getCarrerId());
+		Career careerStudent = careerRepository.find(students.get(position).getCareerId());
 		career.setText(careerStudent.getDescription());
 
 	}

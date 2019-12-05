@@ -23,7 +23,7 @@ public interface CareerRepository {
 	public void delete(Career entity);
 
 	@Query("select * from career where id = :id")
-	public Career find(Object id);
+	public Career find(Integer id);
 
 	@Query("select * from career")
 	public List<Career> findAll();
@@ -34,6 +34,6 @@ public interface CareerRepository {
 	@Query("select sum(s.credits) as total  from subject s inner join career_subject cs on cs.subject_id = s.id  where career_id = :careerId")
 	public long getTotalCredits(long careerId);
 
-	@Query("insert into Career_subject(carrer_id, subject_id) values(:careerId, :subjectId)")
-	public Boolean insertCareerSubject(int careerId, int subjectId);
+	@Query("insert into career_subject(career_id, subject_id) values(:careerId, :subjectId)")
+	public long insertCareerSubject(int careerId, int subjectId);
 }

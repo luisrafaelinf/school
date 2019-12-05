@@ -2,6 +2,7 @@ package com.itla.schoolapp.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.Objects;
@@ -16,14 +17,17 @@ public class Career {
 
 	public Career(){}
 
+	@Ignore
 	public Career(int id) {
 		this.id = id;
 	}
 
+	@Ignore
 	public Career(String description) {
 		this.description = description;
 	}
 
+	@Ignore
 	public Career(int id, String description) {
 		this.id = id;
 		this.description = description;

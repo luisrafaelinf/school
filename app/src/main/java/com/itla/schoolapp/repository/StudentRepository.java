@@ -24,7 +24,7 @@ public interface StudentRepository {
 	public void delete(Student entity);
 
 	@Query("select * from student where id = :id")
-	public Student find(Object id);
+	public Student find(int id);
 
 	@Query("Select * from student")
 	public List<Student> findAll();
