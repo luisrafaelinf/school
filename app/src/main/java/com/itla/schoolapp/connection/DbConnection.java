@@ -27,6 +27,7 @@ public abstract class DbConnection extends RoomDatabase {
 
 		if (Objects.isNull(db)) {
 			db = Room.databaseBuilder(context, DbConnection.class, NAME_DB)
+				.allowMainThreadQueries() //only for test
 				.build();
 		}
 
