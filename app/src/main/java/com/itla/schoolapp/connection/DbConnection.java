@@ -1,89 +1,39 @@
 package com.itla.schoolapp.connection;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
-public final class DbConnection extends SQLiteOpenHelper {
+import com.itla.schoolapp.entity.Career;
+import com.itla.schoolapp.entity.Student;
+import com.itla.schoolapp.entity.Subject;
+import com.itla.schoolapp.repository.CareerRepository;
+import com.itla.schoolapp.repository.StudentRepository;
+import com.itla.schoolapp.repository.SubjectRepository;
 
-	private final static int VERSION = 10;
+import java.util.Objects;
+
+@Database(entities = {Career.class, Student.class, Subject.class}, version = 11)
+public abstract class DbConnection extends RoomDatabase {
+
 	private final static String NAME_DB = "school.db";
+	private static DbConnection db;
 
-	public DbConnection(@Nullable Context context) {
+	public  static DbConnection getInstance(@Nullable Context context) {
 
-		super(context, NAME_DB, null, VERSION);
-	}
+		if (Objects.isNull(db)) {
+			db = Room.databaseBuilder(context, DbConnection.class, NAME_DB)
+				.build();
+		}
 
-	@Override
-	public void onCreate(SQLiteDatabase db) {
-
-		db.execSQL("CREATE TABLE \"student\" ( " +
-			" \"id\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, " +
-			" \"name\" TEXT NOT NULL, " +
-			" \"registerNumber\" TEXT NOT NULL " +
-			" );"
-		);
+		return db;
 
 	}
 
-	@Override
-	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		System.out.println(oldVersion +" --- "+ newVersion);
-
-		if (oldVersion < 10) {
-			db.execSQL("drop table \"subject_old\";");
-			db.execSQL("alter table \"subject\" rename to \"subject_old\";");
-			db.execSQL("CREATE TABLE if not exists \"subject\" (\n" +
-				" \"id\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
-				" \"description\" TEXT NOT NULL,\n" +
-				" \"credits\" INTEGER NOT NULL \n"+
-				");");
-		}
-
-		if (oldVersion < 8) {
-			db.execSQL("update student set career_id = 1");
-		}
-
-		if (oldVersion < 3) {
-			db.execSQL("CREATE TABLE \"student\" (\n" +
-				" \"id\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
-				" \"name\" TEXT NOT NULL,\n" +
-				" \"register_number\" TEXT NOT NULL,\n" +
-				" \"career_id\" INTEGER NOT NULL\n" +
-				");"
-			);
-		}
-
-		if (oldVersion < 2) {
-			db.execSQL(
-				"CREATE TABLE \"career\" (\n" +
-					" \"id\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
-					" \"description\" TEXT NOT NULL\n" +
-					");"
-			);
-
-			db.execSQL(
-				"CREATE TABLE \"career_subject\" (\n" +
-					" \"career_id\" INTEGER NOT NULL,\n" +
-					" \"subject_id\" INTEGER NOT NULL\n" +
-					");"
-			);
-
-			db.execSQL(
-				"CREATE TABLE \"subject\" (\n" +
-					" \"id\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
-					" \"description\" TEXT NOT NULL\n" +
-					");"
-			);
-
-			db.execSQL(
-				"alter table \"student\" rename to \"student_old\";"
-			);
-
-
-		}
-
-	}
+	public abstract CareerRepository getCareer();
+	public abstract StudentRepository getStudent();
+	public abstract SubjectRepository getSubjet();
 }

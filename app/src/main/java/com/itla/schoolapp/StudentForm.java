@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.itla.schoolapp.connection.DbConnection;
 import com.itla.schoolapp.entity.Career;
 import com.itla.schoolapp.entity.Student;
 import com.itla.schoolapp.repository.CareerRepository;
@@ -48,8 +49,8 @@ public class StudentForm extends AppCompatActivity {
 		btnSaveStudent.setOnClickListener(this::save);
 		btnAddCareer.setOnClickListener(this::addCareer);
 
-		studentRepository = new StudentRepository(this.getBaseContext());
-		careerRepository = new CareerRepository(this.getBaseContext());
+		studentRepository = DbConnection.getInstance(this.getBaseContext()).getStudent();
+		careerRepository = DbConnection.getInstance(this.getBaseContext()).getCareer();
 		loadCareers();
 
 	}

@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.itla.schoolapp.R;
+import com.itla.schoolapp.connection.DbConnection;
 import com.itla.schoolapp.entity.Subject;
 import com.itla.schoolapp.repository.SubjectRepository;
 
@@ -22,7 +23,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
 	public SubjectAdapter(Context context, List<Subject> subjects) {
 		this.subjects = subjects;
-		this.subjectRepository = new SubjectRepository(context);
+		this.subjectRepository = DbConnection.getInstance(context).getSubjet();
 	}
 
 	@NonNull

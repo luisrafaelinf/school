@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.itla.schoolapp.adapter.CareerAdapter;
+import com.itla.schoolapp.connection.DbConnection;
 import com.itla.schoolapp.entity.Career;
 import com.itla.schoolapp.repository.CareerRepository;
 
@@ -35,7 +36,7 @@ public class CareerMainActivity extends AppCompatActivity {
 		ActionBar supportActionBar = getSupportActionBar();
 		supportActionBar.hide();
 
-		careerRepository = new CareerRepository(this.getBaseContext());
+		careerRepository = DbConnection.getInstance(this.getBaseContext()).getCareer();
 
 		btnNewCareer = findViewById(R.id.btnNewCareer);
 		lstCareers = findViewById(R.id.lstCareers);

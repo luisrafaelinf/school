@@ -1,14 +1,21 @@
 package com.itla.schoolapp.entity;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.Objects;
 
+@Entity(tableName = "student")
 public class Student {
 
-	public final static String TABLE_NAME = "student";
-
+	@PrimaryKey
 	private int id;
+	@ColumnInfo(name = "career_id")
 	private int careerId;
+	@ColumnInfo(name = "name")
 	private String name;
+	@ColumnInfo(name = "register_number")
 	private String registerNumber;
 
 	public Student(){}

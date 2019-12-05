@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.itla.schoolapp.R;
+import com.itla.schoolapp.connection.DbConnection;
 import com.itla.schoolapp.entity.Career;
 import com.itla.schoolapp.repository.CareerRepository;
 
@@ -24,7 +25,7 @@ public class CareerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
 	public CareerAdapter(Context context, List<Career> careers) {
 		this.careers = careers;
-		careerRepository = new CareerRepository(context);
+		careerRepository = DbConnection.getInstance(context).getCareer();
 	}
 
 	@NonNull

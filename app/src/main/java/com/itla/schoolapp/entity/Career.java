@@ -1,12 +1,17 @@
 package com.itla.schoolapp.entity;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.Objects;
 
+@Entity(tableName = "career")
 public class Career {
 
-	public final static String TABLE_NAME = "career";
-
+	@PrimaryKey
 	private int id;
+	@ColumnInfo(name = "description")
 	private String description;
 
 	public Career(){}

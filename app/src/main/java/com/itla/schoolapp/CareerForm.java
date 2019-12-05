@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.itla.schoolapp.adapter.SubjectAdapter;
+import com.itla.schoolapp.connection.DbConnection;
 import com.itla.schoolapp.entity.Career;
 import com.itla.schoolapp.entity.Subject;
 import com.itla.schoolapp.repository.CareerRepository;
@@ -44,8 +45,8 @@ public class CareerForm extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.career_form);
 
-		subjectRepository = new SubjectRepository(this.getBaseContext());
-		careerRepository = new CareerRepository(this.getBaseContext());
+		subjectRepository = DbConnection.getInstance(this.getBaseContext()).getSubjet();
+		careerRepository = DbConnection.getInstance(this.getBaseContext()).getCareer();
 
 		txtDescriptionCareer = findViewById(R.id.txtDescriptionCareer);
 		cmbSubject = findViewById(R.id.cmbSubject);

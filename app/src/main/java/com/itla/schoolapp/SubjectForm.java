@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.itla.schoolapp.connection.DbConnection;
 import com.itla.schoolapp.entity.Subject;
 import com.itla.schoolapp.repository.SubjectRepository;
 
@@ -27,7 +28,7 @@ public class SubjectForm extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.subject_form);
 
-		subjectRepository = new SubjectRepository(this.getBaseContext());
+		subjectRepository = DbConnection.getInstance(this.getBaseContext()).getSubjet();
 
 		txtDescriptionSubject = findViewById(R.id.txtDescriptionSubjects);
 		txtCredit = findViewById(R.id.txtCredits);

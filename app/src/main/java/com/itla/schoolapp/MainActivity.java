@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.itla.schoolapp.adapter.StudentAdapter;
+import com.itla.schoolapp.connection.DbConnection;
 import com.itla.schoolapp.entity.Career;
 import com.itla.schoolapp.entity.Student;
 import com.itla.schoolapp.repository.CareerRepository;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
 
-		studentRepository = new StudentRepository(this.getBaseContext());
+		studentRepository = DbConnection.getInstance(this.getBaseContext()).getStudent();
 
 		btnNewStudent = findViewById(R.id.btnNewStudent);
 

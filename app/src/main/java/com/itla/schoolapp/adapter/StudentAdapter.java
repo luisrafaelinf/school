@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.itla.schoolapp.R;
+import com.itla.schoolapp.connection.DbConnection;
 import com.itla.schoolapp.entity.Career;
 import com.itla.schoolapp.entity.Student;
 import com.itla.schoolapp.repository.CareerRepository;
@@ -24,7 +25,7 @@ public class StudentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
 	public StudentAdapter(Context context, List<Student> students) {
 		this.students = students;
-		careerRepository = new CareerRepository(context);
+		careerRepository = DbConnection.getInstance(context).getCareer();
 	}
 
 

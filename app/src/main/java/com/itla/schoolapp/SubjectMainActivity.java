@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.itla.schoolapp.adapter.SubjectAdapter;
+import com.itla.schoolapp.connection.DbConnection;
 import com.itla.schoolapp.entity.Subject;
 import com.itla.schoolapp.repository.SubjectRepository;
 
@@ -29,7 +30,7 @@ public class SubjectMainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.subject_main);
 
-		subjectRepository = new SubjectRepository(this.getBaseContext());
+		subjectRepository = DbConnection.getInstance(this.getBaseContext()).getSubjet();
 
 		btnNewSubject = findViewById(R.id.btnNewSubject);
 		lstSubjects = findViewById(R.id.lstSubjects);
